@@ -1,0 +1,29 @@
+node_modules
+.next
+out
+.git-old-*
+*.tsbuildinfo
+.env
+.env.local
+.env.production
+.env*.local
+.DS_Store
+npm-debug.log*
+
+# Images non utilisees par le site (sources/brouillons non references dans le code)
+public/images/beautiful-city.jpg
+public/images/cityscape.jpg
+public/images/construction-site.jpg
+public/images/elegant-black-minimal-interior-design.jpg
+public/images/elegant-black-minimal-interior-design (2).jpg
+public/images/interior-cozy.jpg
+public/images/kitchen-modern.jpg
+public/images/living-room-stylish.jpg
+public/images/modern-business-building-with-glass-wall-from-empty-floor.jpg
+public/images/modern-business-building-with-glass-wall-from-empty-floor (1).jpg
+public/images/modern-minimalist-living-room-with-white-cabinet-decorative-elements.jpg
+public/images/office-minimalist.jpg
+public/images/ss.jpg
+public/images/ss (1).jpg
+public/images/ss (3).jpg
+public/images/Nouveau dossier/

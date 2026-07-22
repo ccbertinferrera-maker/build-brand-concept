@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ink: 10 10 11;
+  --color-ink-soft: 19 19 21;
+  --color-ink-raised: 27 27 30;
+
+  --color-paper: 244 241 236;
+  --color-paper-muted: 172 168 160;
+  --color-paper-dim: 122 118 110;
+
+  --color-brass: 201 166 107;
+  --color-brass-light: 226 202 156;
+  --color-brass-dark: 148 115 69;
+
+  --color-line: 244 241 236;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: rgb(var(--color-ink));
+  scroll-behavior: auto;
+}
+
+html.lenis {
+  height: auto;
+}
+
+body {
+  background: rgb(var(--color-ink));
+  color: rgb(var(--color-paper));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgb(var(--color-brass));
+  color: rgb(var(--color-ink));
+}
+
+/* Scrollbar - subtle, editorial */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-ink));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-ink-raised));
+  border: 2px solid rgb(var(--color-ink));
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Focus visibility - accessible, on-brand (brass ring, never removed) */
+:focus-visible {
+  outline: 1.5px solid rgb(var(--color-brass));
+  outline-offset: 4px;
+}
+
+/* Custom cursor - hidden on touch devices */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a,
+  button,
+  [data-cursor] {
+    cursor: none;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgb(var(--color-brass));
+}
+
+.section-number {
+  font-family: var(--font-serif);
+  font-variant-numeric: tabular-nums;
+  color: rgb(var(--color-paper) / 0.25);
+}
+
+/* Underline-draw link */
+.link-draw {
+  position: relative;
+  display: inline-block;
+}
+.link-draw::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.link-draw[data-active="true"]::after,
+.link-draw:hover::after {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.link-draw-in::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+.link-draw-in:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,77 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { galleryImages } from "@/lib/data";
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function HorizontalGallery() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const track = trackRef.current;
+    if (!section || !track) return;
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+      const distance = track.scrollWidth - window.innerWidth;
+      if (distance <= 0) return;
+
+      const trigger = ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: () => `+=${distance}`,
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+        onUpdate: (self) => {
+          gsap.set(track, { x: -distance * self.progress });
+        },
+      });
+
+      return () => trigger.kill();
+    });
+
+    return () => mm.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="relative bg-ink md:overflow-hidden">
+      <div
+        ref={trackRef}
+        className="no-scrollbar flex h-[75vh] w-max snap-x snap-mandatory items-center gap-6 overflow-x-auto px-gutter will-change-transform sm:h-[100svh] md:snap-none md:gap-10 md:overflow-visible"
+      >
+        {galleryImages.map((img, i) => (
+          <figure
+            key={img.src}
+            data-cursor
+            data-cursor-text="Voir le projet"
+            className="group relative h-[62vh] w-[78vw] flex-none snap-center overflow-hidden sm:h-[68vh] sm:w-[46vw] lg:w-[34vw]"
+          >
+            <Image
+              src={img.src}
+              alt={img.title}
+              fill
+              sizes="(max-width: 768px) 78vw, 40vw"
+              className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.06]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
+            <span className="absolute left-6 top-6 font-serif text-sm text-paper/60">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <figcaption className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 ease-out sm:translate-y-6 sm:group-hover:translate-y-0">
+              <span className="eyebrow">{img.tag}</span>
+              <p className="mt-1 font-serif text-xl text-paper sm:text-2xl">{img.title}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
