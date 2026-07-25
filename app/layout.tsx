@@ -4,7 +4,7 @@ import Providers from "@/components/layout/Providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://buildandbrandconcept.com"),
+  metadataBase: new URL("https://buildbrandconcept.com"),
   title: {
     default: "Build & Brand Concept — Architecture, construction, design intérieur | Conakry",
     template: "%s — Build & Brand Concept",

@@ -11,11 +11,16 @@ export default function ContactInfo() {
           <li className="flex items-center gap-3">
             <MapPin size={16} className="text-brass" /> {contactInfo.city}
           </li>
-          <li className="flex items-center gap-3">
-            <Mail size={16} className="text-brass" />
-            <a href={`mailto:${contactInfo.email}`} data-cursor className="link-draw hover:text-paper">
-              {contactInfo.email}
-            </a>
+          <li className="flex items-start gap-3">
+            <Mail size={16} className="mt-1 text-brass" />
+            <div className="flex flex-col gap-1">
+              <a href={`mailto:${contactInfo.email}`} data-cursor className="link-draw hover:text-paper">
+                {contactInfo.email}
+              </a>
+              <a href={`mailto:${contactInfo.infoEmail}`} data-cursor className="link-draw hover:text-paper">
+                {contactInfo.infoEmail}
+              </a>
+            </div>
           </li>
           <li className="flex items-center gap-3">
             <Phone size={16} className="text-brass" />

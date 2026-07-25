@@ -234,9 +234,10 @@ export const renders3d = Array.from({ length: 15 }, (_, i) => {
 });
 
 export const contactInfo = {
-  city: "Conakry, Guinée",
-  email: "contact@buildandbrandconcept.com",
-  phone: "+224 XX XX XX XX",
+  city: "Guinée Conakry",
+  email: "contact@buildbrandconcept.com",
+  infoEmail: "info@buildbrandconcept.com",
+  phone: "+224 627 30 01 10",
   social: [
     { label: "Instagram", href: "#" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/build-brand-concept/" },

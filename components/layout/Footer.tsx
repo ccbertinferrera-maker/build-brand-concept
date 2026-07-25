@@ -50,11 +50,16 @@ export default function Footer() {
           <div>
             <p className="eyebrow mb-5">Contact</p>
             <ul className="flex flex-col gap-3 text-sm text-paper-muted">
-              <li className="flex items-center gap-2">
-                <Mail size={14} className="text-brass" />
-                <a href={`mailto:${contactInfo.email}`} data-cursor className="link-draw hover:text-paper">
-                  {contactInfo.email}
-                </a>
+              <li className="flex items-start gap-2">
+                <Mail size={14} className="mt-1 text-brass" />
+                <div className="flex flex-col gap-1">
+                  <a href={`mailto:${contactInfo.email}`} data-cursor className="link-draw hover:text-paper">
+                    {contactInfo.email}
+                  </a>
+                  <a href={`mailto:${contactInfo.infoEmail}`} data-cursor className="link-draw hover:text-paper">
+                    {contactInfo.infoEmail}
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={14} className="text-brass" />
