@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram, Linkedin, Facebook, Mail, Phone } from "lucide-react";
 import { nav, tags, contactInfo } from "@/lib/data";
 
@@ -56,9 +57,6 @@ export default function Footer() {
                   <a href={`mailto:${contactInfo.email}`} data-cursor className="link-draw hover:text-paper">
                     {contactInfo.email}
                   </a>
-                  <a href={`mailto:${contactInfo.infoEmail}`} data-cursor className="link-draw hover:text-paper">
-                    {contactInfo.infoEmail}
-                  </a>
                 </div>
               </li>
               <li className="flex items-center gap-2">
@@ -88,7 +86,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-2 border-t border-line/10 pt-6 text-xs text-paper-dim sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} Build &amp; Brand Concept. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()}<Image src="/logo/Logo.png" alt="Logo" width={48} height={48} priority className="mr-2 inline-block align-middle" />
+                Build <span className="text-brass">&amp;</span> Brand Concept. Tous droits réservés.</p>
           <p>Conakry, Guinée</p>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { nav } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function Header() {
   const pathname = usePathname();
@@ -39,8 +40,9 @@ export default function Header() {
         <Link
           href="/"
           data-cursor
-          className="font-serif text-lg tracking-tight text-paper sm:text-xl"
+          className="flex items-center gap-2 font-serif text-lg tracking-tight text-paper sm:text-xl"
         >
+          <Image src="/logo/Logo.png" alt="Logo" width={48} height={48} priority />
           Build <span className="text-brass">&amp;</span> Brand Concept
         </Link>
 
