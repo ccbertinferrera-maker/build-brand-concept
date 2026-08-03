@@ -29,6 +29,18 @@ export default function AvantApres() {
                 </span>
                 <h3 className="font-serif text-2xl text-paper sm:text-3xl">{project.title}</h3>
               </div>
+              <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-[0.14em] text-brass">
+                {[project.typologie, project.surface, project.duree]
+                  .filter(Boolean)
+                  .map((item, idx, arr) => (
+                    <span key={item} className="flex items-center gap-3">
+                      {item}
+                      {idx < arr.length - 1 && (
+                        <span className="h-1 w-1 rounded-full bg-paper-dim" />
+                      )}
+                    </span>
+                  ))}
+              </div>
               <p className="mb-6 max-w-xl text-sm leading-relaxed text-paper-muted sm:text-base">
                 {project.description}
               </p>

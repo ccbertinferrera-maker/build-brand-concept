@@ -50,7 +50,7 @@ export const valeurs = [
   {
     n: "03",
     title: "Engagement",
-    text: "Tenir parole sur les délais, le budget et la qualité promise dès le départ.",
+    text: "Porter, dans chaque projet, l'ambition d'une architecture guinéenne plus exigeante.",
   },
   {
     n: "04",
@@ -70,7 +70,7 @@ export const valeurs = [
   {
     n: "07",
     title: "Qualité",
-    text: "Un contrôle rigoureux à chaque corps de métier, du gros œuvre aux finitions.",
+    text: "Chaque corps de métier validé avant que le suivant ne prenne le relais.",
   },
   {
     n: "08",
@@ -156,9 +156,9 @@ export const raisons = [
 
 export const stats = [
   { value: 90, suffix: "%+", label: "de l'équipe est guinéenne" },
-  { value: 2, suffix: "", label: "pays d'intervention en Afrique de l'Ouest" },
+  { value: 2, suffix: "", label: "pays où l'équipe s'est formée" },
   { value: 11, suffix: "", label: "corps de métier réunis sous un même toit" },
-  { value: 7, suffix: "", label: "raisons de nous choisir" },
+  { value: 6, suffix: "", label: "ans d'exigence sur le terrain" },
 ];
 
 export const partners = ["BRD Build", "AR.Sketch", "Chez Alino"];
@@ -168,6 +168,8 @@ export const avantApres = [
   {
     slug: "construction-agence",
     title: "Construction d'une agence",
+    typologie: "Tertiaire",
+    duree: "12 mois",
     description:
       "D'un terrain nu à un bâtiment livré clé en main : gros œuvre, façade et éclairage intérieur.",
     avant: {
@@ -194,6 +196,9 @@ export const avantApres = [
   {
     slug: "renovation-villa",
     title: "Rénovation d'une villa",
+    typologie: "Résidentiel",
+    surface: "500 m²",
+    duree: "8 mois",
     description:
       "Une villa datée entièrement repensée : façade, éclairage extérieur et aménagement paysager.",
     avant: {
@@ -224,19 +229,38 @@ export const avantApres = [
   },
 ];
 
-// Rendus 3D (visualisations de projets)
-export const renders3d = Array.from({ length: 15 }, (_, i) => {
-  const n = String(i + 1).padStart(2, "0");
-  return {
-    src: `/images/realisations/3d-render-${n}.jpg`,
-    alt: `Rendu 3D d'un projet Build & Brand Concept — vue ${i + 1}`,
-  };
-});
+// Rendus 3D (visualisations de projets), regroupés par projet.
+export const renders3dProjects = [
+  {
+    slug: "duplex-300m2",
+    title: "Duplex de 300 m²",
+    rooms: ["Salon", "Salon privé", "Salle à manger", "Salon privé", "Salon", "Chambre", "Chambre", "Chambre", "Salle à manger"],
+    offset: 0,
+  },
+  {
+    slug: "villa-particulier",
+    title: "Villa d'un particulier",
+    rooms: ["Salon", "Salon", "Salle à manger", "Cuisine", "Cuisine", "Cuisine"],
+    offset: 9,
+  },
+].map((project) => ({
+  slug: project.slug,
+  title: project.title,
+  renders: project.rooms.map((room, i) => {
+    const n = String(project.offset + i + 1).padStart(2, "0");
+    return {
+      src: `/images/realisations/3d-render-${n}.jpg`,
+      alt: `Rendu 3D — ${project.title}, ${room.toLowerCase()}`,
+      room,
+    };
+  }),
+}));
 
 export const contactInfo = {
-  city: "Conakry, Guinée",
-  email: "contact@buildandbrandconcept.com",
-  phone: "+224 XX XX XX XX",
+  city: "Guinée Conakry",
+  email: "contact@buildbrandconcept.com",
+  infoEmail: "info@buildbrandconcept.com",
+  phone: "+224 627 30 01 10",
   social: [
     { label: "Instagram", href: "#" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/build-brand-concept/" },

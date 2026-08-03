@@ -17,9 +17,9 @@ export default function Innovation() {
               as="p"
               className="mt-10 max-w-xl text-base leading-loose text-paper-muted sm:ml-[4.5rem] sm:text-lg"
             >
-              Nous maîtrisons les biodigesteurs, capables de transformer les matières organiques
-              d&apos;une fosse septique en biogaz &mdash; une énergie propre, produite directement
-              sur place, au service de l&apos;habitat.
+              Nous comptons parmi les meilleurs à Conakry à maîtriser les biodigesteurs, capables
+              de transformer les matières organiques d&apos;une fosse septique en biogaz &mdash;
+              une énergie propre, produite directement sur place, au service de l&apos;habitat.
             </RevealText>
           </div>
           <RevealImage

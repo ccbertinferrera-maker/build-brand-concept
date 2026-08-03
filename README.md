@@ -39,17 +39,20 @@ vérifier ce domaine dans Resend puis mettre à jour le champ `from` dans
 
 ## À personnaliser avant mise en ligne
 
-- **Photos** : toutes les images de `public/images/` sont des photos de stock
-  fournies en attendant les vraies réalisations du client. Il suffit de
-  remplacer les fichiers (mêmes noms) ou de changer les chemins dans
-  `lib/data.ts` pour les vraies photos de chantiers/réalisations.
-- **Téléphone / email / réseaux sociaux** : à mettre à jour dans `lib/data.ts`
-  (objet `contactInfo`) — le numéro de téléphone est un placeholder.
+- **Photos** : les images de `public/images/realisations/` (avant/après
+  construction agence et rénovation villa) sont de **vraies photos de
+  chantiers Build & Brand Concept**, confirmées par le client (03/08/2026) —
+  ne pas les traiter comme du stock. Les autres images de `public/images/`
+  (Hero, Manifeste, ambiances de section) restent des photos de stock
+  décoratives ; à remplacer au fil de l'eau par de vraies photos d'équipe et
+  de chantiers, mêmes noms de fichiers ou chemins à ajuster dans `lib/data.ts`.
+- **Téléphone / email / réseaux sociaux** : déjà à jour dans `lib/data.ts`
+  (objet `contactInfo`) — seul le lien Instagram reste un placeholder
+  (`href: "#"`) en attendant la création du compte.
 - **Textes des valeurs / raisons de nous choisir** : rédigés à partir des
   titres du brief ; à remplacer par les textes exacts du dossier de marque
   si celui-ci en contient une version différente (`lib/data.ts`).
-- **Favicon / logo** : aucun logo n'a été fourni ; le header utilise pour
-  l'instant un logotype texte "Build & Brand Concept".
+- **Favicon / logo** : déjà en place (`public/logo/`, `public/favicon.ico`).
 
 ## Structure
 

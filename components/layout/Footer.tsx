@@ -50,11 +50,13 @@ export default function Footer() {
           <div>
             <p className="eyebrow mb-5">Contact</p>
             <ul className="flex flex-col gap-3 text-sm text-paper-muted">
-              <li className="flex items-center gap-2">
-                <Mail size={14} className="text-brass" />
-                <a href={`mailto:${contactInfo.email}`} data-cursor className="link-draw hover:text-paper">
-                  {contactInfo.email}
-                </a>
+              <li className="flex items-start gap-2">
+                <Mail size={14} className="mt-1 text-brass" />
+                <div className="flex flex-col gap-1">
+                  <a href={`mailto:${contactInfo.email}`} data-cursor className="link-draw hover:text-paper">
+                    {contactInfo.email}
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={14} className="text-brass" />
@@ -83,8 +85,16 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-2 border-t border-line/10 pt-6 text-xs text-paper-dim sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} Build &amp; Brand Concept. Tous droits réservés.</p>
-          <p>Conakry, Guinée</p>
+          <p>
+            &copy; {new Date().getFullYear()} Build <span className="text-brass">&amp;</span> Brand
+            Concept. Tous droits réservés.
+          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/mentions-legales" data-cursor className="link-draw hover:text-paper">
+              Mentions légales
+            </Link>
+            <span>Conakry, Guinée</span>
+          </div>
         </div>
       </div>
     </footer>

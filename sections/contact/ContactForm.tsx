@@ -87,22 +87,27 @@ export default function ContactForm() {
         </p>
       )}
 
-      <MagneticButton
-        type="submit"
-        disabled={status === "loading"}
-        className="group flex w-fit items-center gap-3 border border-brass bg-brass px-8 py-4 text-sm uppercase tracking-[0.15em] text-ink transition-colors hover:bg-transparent hover:text-brass disabled:opacity-60"
-      >
-        {status === "loading" ? (
-          <>
-            Envoi&hellip; <Loader2 size={16} className="animate-spin" />
-          </>
-        ) : (
-          <>
-            Envoyer le message
-            <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </>
-        )}
-      </MagneticButton>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <MagneticButton
+          type="submit"
+          disabled={status === "loading"}
+          className="group flex w-fit items-center gap-3 border border-brass bg-brass px-8 py-4 text-sm uppercase tracking-[0.15em] text-ink transition-colors hover:bg-transparent hover:text-brass disabled:opacity-60"
+        >
+          {status === "loading" ? (
+            <>
+              Envoi&hellip; <Loader2 size={16} className="animate-spin" />
+            </>
+          ) : (
+            <>
+              Envoyer ma demande
+              <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </>
+          )}
+        </MagneticButton>
+        <p className="text-xs text-paper-dim">
+          Un premier échange, sans engagement &mdash; nous revenons vers vous rapidement.
+        </p>
+      </div>
     </form>
   );
 }

@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { nav } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function Header() {
   const pathname = usePathname();
@@ -36,12 +37,15 @@ export default function Header() {
       )}
     >
       <div className="mx-auto flex max-w-content items-center justify-between px-gutter py-5">
-        <Link
-          href="/"
-          data-cursor
-          className="font-serif text-lg tracking-tight text-paper sm:text-xl"
-        >
-          Build <span className="text-brass">&amp;</span> Brand Concept
+        <Link href="/" data-cursor className="flex items-center">
+          <Image
+            src="/logo/Logo.png"
+            alt="Build & Brand Concept"
+            width={232}
+            height={40}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">

@@ -62,7 +62,16 @@ export default function NotreHistoire() {
 
       <div className="mt-24">
         <p className="eyebrow mb-8 text-center">Ils nous ont fait confiance</p>
-        <Marquee items={[...partners, "Plusieurs autres structures de référence"]} />
+        <Marquee items={partners} />
+        <RevealText
+          as="p"
+          className="mx-auto mt-10 max-w-md text-center text-sm italic leading-relaxed text-paper-muted"
+        >
+          AR.Sketch a salué notre apport sur son projet.
+          <span className="mt-2 block not-italic text-xs uppercase tracking-[0.14em] text-paper-dim">
+            Richmond &mdash; AR.Sketch
+          </span>
+        </RevealText>
       </div>
     </section>
   );
